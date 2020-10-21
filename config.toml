@@ -1,0 +1,24 @@
+baseURL = "http://example.org/"
+languageCode = "zh-cn"
+title = "Roland's Blog"
+paginate = 5
+summaryLength = 50
+theme = "hugo-theme-bootstrap4-blog"
+copyright = "This site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)."
+
+[permalinks]
+  posts = "/:year/:month/:title/"
+  page = "/:slug/"
+
+[[menu.sidebar]]
+  name = "Kubernetes"
+  url = "https://Kubernetes.io"
+
+
+[params]
+  author = "Roland"
+  description = "奔四程序员，不会写博客～～"
+
+[params.sidebar]
+  # Optional about block for sidebar (can be Markdown)
+  about = "今时未晚，未来可期！"
