@@ -1,0 +1,6 @@
+[submodule "public"]
+	path = public
+	url = https://github.com/RolandMa1986/rolandma1986.github.io.git
+[submodule "themes/tale"]
+	path = themes/tale
+	url = https://github.com/EmielH/tale-hugo.git
