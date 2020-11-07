@@ -1,7 +1,6 @@
 ---
 title: "Kubernetes Issue 归类指南"
 date: 2020-11-06T08:42:33Z
-draft: true
 ---
 
 
