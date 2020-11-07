@@ -1,9 +1,9 @@
-baseURL = "http://example.org/"
+# baseURL = "http://example.org/"
 languageCode = "zh-cn"
 title = "Roland's Blog"
 paginate = 5
 summaryLength = 50
-theme = "hugo-theme-bootstrap4-blog"
+theme = "tale"
 copyright = "This site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)."
 
 [permalinks]
