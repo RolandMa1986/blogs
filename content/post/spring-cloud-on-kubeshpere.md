@@ -3,8 +3,8 @@ title: "基于 KubeSphere 的 Spring Could 微服务 CI/CD 实践"
 date: 2020-10-22T02:06:46Z
 tag: 
 - Spring Cloud
-- kubernetes
 - Kubernetes
+- KubeSphere
 ---
 
 本文以 Pig 为例介绍如何在 KubeSphere 上发布一个基于 Spring Cloud 微服务的 CI/CD 项目。
