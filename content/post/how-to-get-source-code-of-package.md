@@ -23,7 +23,7 @@ $ sudo vi /etc/apt/sources.list
 
 以 Ubuntu 18.04 为例，取消所有以 deb-src 为开头的源路径。
 
-```
+```bash
 deb-src http://cn.archive.ubuntu.com/ubuntu bionic main restricted
 deb-src http://cn.archive.ubuntu.com/ubuntu bionic-updates main restricted
 deb-src http://cn.archive.ubuntu.com/ubuntu bionic universe
@@ -37,7 +37,7 @@ deb-src http://cn.archive.ubuntu.com/ubuntu bionic universe
 
 我们也可以添加第三方的源已经代码源，以 docker-ce 为例在源中增加以下两行即可:
 
-```
+```bash
 deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
 deb-src [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
 ```
@@ -49,7 +49,8 @@ deb-src [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
 ### Step 3 安装 dpkg-dev 包
 
 下载源码依赖于 dpkg-dev 进行解包。
-```
+
+```bash
 sudo apt-get install dpkg-dev
 ```
 如果未安装 dpkg-dev 执行下载时会遇到以下错误：
@@ -100,13 +101,13 @@ $ dpkg-source -x /path/to/pkg.dsc
 
 使用 apt-get build-dep 命令可以为我们自动安装编译 systemd 所需要的工具包：
 
-```
+```bash
 sudo apt-get -y build-dep systemd
 ```
 
 最后，我们可以自行打包：
 
-```
+```bash
 $ debuild
 ```
 
