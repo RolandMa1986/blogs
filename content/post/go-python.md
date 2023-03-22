@@ -1,4 +1,23 @@
 
+## 脚本/宏指令场景
+
+用户可扩展数据的处理方式、不仅仅限于变量读写。如实现算法、报表处理、数据库读写等各种场景。
+
+其他竞争产品：
+1. c、较传统的扩展方式，编写困难，但效率高，资源占用低。适用于各种嵌入式设备
+2. VBS、传统的编程郁语言，wincc博图，入门容易，拓展少
+3. javascript, 常见与 wincc unifid 等
+4. 其他
+
+选择标准：
+1. 高度灵活，扩展性强
+2. 学习成本较低，易于入门
+3. 有活跃的用户社区和用户基础
+
+基本需求：
+1. HMI 方法/事件可以出发脚本执行，并返回结果
+2. 在脚本中可以对变量进行读写
+
 
 ## python go  交互方式
 
@@ -6,11 +25,22 @@
 2. pipe 管道
 3. 直接调用？
 
+
 开发成本
 调用效率
 兼容性
+隔离性
 
-## cpython
+## Python /cpython
+
+### Python 
+
+- 为解释性语言
+- 面向对象
+  - 属性
+  - 方法
+ 
+
 
 1. 扩展一个 c 模块
 
@@ -41,8 +71,10 @@ spam_system(PyObject *self, PyObject *args)
     return PyLong_FromLong(sts);
 }
 ```
+
 注册方法
-``` 
+
+```c
 static struct PyModuleDef spammodule = {
     PyModuleDef_HEAD_INIT,
     "spam",   /* name of module */
@@ -68,12 +100,13 @@ PyInit_spam(void)
 
 ```
 
-2. 集成 python interrapter
+2. 集成 python 解释器
 
 
 ### 阅读
 
 https://docs.python.org/3/extending/extending.html#a-simple-example
+https://zhuanlan.zhihu.com/p/165232299
 
 ## cgo
 
