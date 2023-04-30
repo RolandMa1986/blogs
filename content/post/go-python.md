@@ -22,7 +22,10 @@
 ## python go  交互方式
 
 1. api 调用 grpc,webapi,etc
-2. pipe 管道
+2.  pipe 管道
+   2.1 go-> pyhton pipe -> 
+   2.2 python-> go webapi 
+
 3. 直接调用？
 
 
@@ -39,7 +42,6 @@
 - 面向对象
   - 属性
   - 方法
- 
 
 
 1. 扩展一个 c 模块
@@ -48,7 +50,7 @@
 
 ```python
 import spam
-status = spam.system("ls -l")
+status = spam.system("ls -l",0)
 ```
 
 必须包含的头文件
@@ -67,6 +69,7 @@ spam_system(PyObject *self, PyObject *args)
 
     if (!PyArg_ParseTuple(args, "s", &command))
         return NULL;
+    // 此处 system 为内置函数，用于调用系统命令
     sts = system(command);
     return PyLong_FromLong(sts);
 }

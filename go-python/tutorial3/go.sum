@@ -1,0 +1,5 @@
+github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+github.com/go-python/cpy3 v0.2.0 h1:IQ8v6KOTGSvejROZ8BPCfVW4rSMOKfpVwDi6sKYuu1w=
+github.com/go-python/cpy3 v0.2.0/go.mod h1:W7F8SGWQv11501PYSj9d+NSv8U0/vWYa+FcMxBu4eqo=
+github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
+github.com/stretchr/testify v1.2.2 h1:bSDNvY7ZPG5RlJ8otE/7V6gMiyenm9RtJ7IUVIAoJ1w=
