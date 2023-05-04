@@ -52,5 +52,61 @@ dd if=minimal_linux_live.iso of=/dev/xxx
 
 这样U盘将被识别为一个可启动设备，在BIOS中设置U盘为启动设备后即可进入MLL。
 
-## MLL 的启动过程
+## MLL 启动过程
 
+MLL 使用 SYSLINUX 作为boot loader。SYSLINUX 是一个 兼容 CD,U盘和PXE等多种设备的启动引导器，同时支持 BIOS 及 UEFI。下文中我们会以 BIOS 启动过程为例，分析 MLL 的其启动过程。在分析启动过程前，我们首先熟悉一下 MLL 镜像文件的结构。
+
+### ISO 镜像结构
+
+当我们在配置文件 `.config` 中将 `FIRMWARE_TYPE` 属性设置为 `bios` 时，打包完成的 iso 镜像结构如下：
+
+```
+minimal_linux_live.iso
+├── boot/
+│   ├── kernel.xz
+│   ├── rootfs.xz
+│   └── syslinux/
+├── EFI/
+└── minimal/
+```
+
+- **boot/** 文件夹下包含 `BIOS` 启动过程中需要的所有文件。在该文件下可以找到 Linux 内核、initramfs及 SYSLINUX 启动引导。
+- **boot/kernel.xz** Linux 内核，内核初始化后会检测硬件信息并加载驱动，然后将控制权移交到 `initramfs`
+- **boot/rootfs.xz** 即 `initramfs` 文件系统。initramfs 在内核启动的早期提供用一个户态环境，用于完成在内核启动阶段不易完成的工作。内核启动后会自动解压该文件到内存文件系统中。实际的控制权移交工作由 `/init` shell 脚本完成。
+- **boot/syslinux/** 文件夹包含了 ISOLINUX 引导器的可执行文件和配置文件，它是 SYSLINUX 的子项目。
+- **minimal/** 文件夹包含了 MLL 的附加包，大多数MLL的工具由附加包提供，如 openjdk，DHCP等。
+
+### 启动流程
+
+
+
+**init 用户空间启动过程**
+```
+# System initialization sequence:
+#
+ /init (this file)
+  |
+  +--(1) /etc/01_prepare.sh
+  |
+  +--(2) /etc/02_overlay.sh
+          |
+          +-- /etc/03_init.sh
+               |
+               +-- /sbin/init
+                    |
+                    +--(1) /etc/04_bootscript.sh
+                    |       |
+                    |       +-- /etc/autorun/* (all scripts)
+                    |
+                    +--(2) /bin/sh (Alt + F1, main console)
+                    |
+
+```
+
+
+## 参考
+https://wiki.archlinux.org/title/syslinux
+
+https://github.com/ivandavidov/minimal
+
+https://ivandavidov.github.io/minimal/#home
